@@ -1,10 +1,12 @@
-import express from "express";
-import { extractData } from "./index";
+const express = require("express");
+const cors = require("cors");
+const extractData = require("./index");
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/scrape", async (req, res) => {
   const { area, industry } = req.body;
@@ -12,6 +14,10 @@ app.post("/scrape", async (req, res) => {
   res.json(data);
 });
 
+app.post("/", (req, res) => {
+  return res.send("Hello World");
+});
+
 app.listen(port, () => {
-  `Server is listening at port ${port}`;
+  console.log(`Server is listening at port ${port}`);
 });

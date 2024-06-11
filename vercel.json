@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/index.js", "dest": "/src/server.js" }
+    ],
+    "builds": [
+      { "src": "src/server.js", "use": "@vercel/node" }
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+  
